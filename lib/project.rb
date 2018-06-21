@@ -11,8 +11,10 @@ class Project
     @title
   end
   
-  def add_backer(name)
-    self.backers << name
+  def add_backer(backer)
+    self.backers << backer
+    backer.add_project(self) unless project.backers.include?(self)
+
   end
   
   def backers=(backer)  #belongs to backers
